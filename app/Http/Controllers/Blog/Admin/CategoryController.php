@@ -16,10 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $items = DB::table('blog_posts')->paginate(15);
-
+        $items = BlogPost::all();
     
-        return view('/home', compact('items'));
+        return view('blog.posts.index', compact('items'));
     }
     
     /**
