@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog\Admin;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Blog\Admin\BaseController as Controller;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -15,9 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $items = BlogPost::all();
+        $items = DB::table('blog_posts')->paginate(15);
+
     
-        return view('blog.posts.index', compact('items'));
+        return view('/home', compact('items'));
     }
     
     /**
@@ -63,4 +65,5 @@ class CategoryController extends Controller
     {
         dd(__METHOD__);
     }
+    
 }

@@ -1,3 +1,5 @@
 @foreach ($items as $item)
-    <p>This is user {{ $item->id }}</p>
+    <p>{{ $item->id }}</p>
+    {{ $item->title }}
 @endforeach
+

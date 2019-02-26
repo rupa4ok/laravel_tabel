@@ -13,8 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+    
+                        @foreach ($items as $item)
+                            <p>{{ $item->id }}</p>
+                            {{ $item->title }}
+                        @endforeach
+    
+                        {{ $items->links() }}
                 </div>
             </div>
         </div>
