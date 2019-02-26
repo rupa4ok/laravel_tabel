@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Blog\Admin;
 
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Blog\Admin\BaseController as Controller;
 use Illuminate\Support\Facades\DB;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     /**
      * Display a listing of the resource.
