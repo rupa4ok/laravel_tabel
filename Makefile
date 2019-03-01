@@ -1,0 +1,2 @@
+serve:
+	php artisan serve
