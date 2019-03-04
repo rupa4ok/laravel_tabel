@@ -2,9 +2,16 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('blog.admin.categories.update', $item->id) }}" method="post">
+        
+        @if ($item->exists)
+            <form action="{{ route('blog.admin.categories.update', $item->id) }}" method="POST">
             @method('PATCH')
+        @else
+            <form action="{{ route('blog.admin.categories.store') }}" method="POST">
+        @endif
+            
             @csrf
+            
             <div class="container">
                 @if ($errors->any())
                     <div class="row justify-content-center">
