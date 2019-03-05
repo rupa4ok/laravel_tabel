@@ -19,12 +19,12 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>
-                                        <a href="{{ route('blog.admin.categories.edit', $item->id) }}">
+                                        <a href="{{ route('blog.posts.index', $item->id) }}">
                                             {{ $item->title }}
                                         </a>
                                     </td>
-                                    <td @if (in_array($item->parent_id, [0,1])) style="color:#ccc" @endif>
-                                        {{ $item->parent_id }}
+                                    <td>
+                                        {{ $item->category_id }}
                                     </td>
                                 </tr>
                             </tbody>
