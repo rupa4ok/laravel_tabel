@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Repositories\BlogPostRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class PostController extends BaseController
 {
+    
+    /**
+     * @var BlogPostRepository|\Illuminate\Foundation\Application|mixed
+     */
+    private $blogCategoryRepository;
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->blogCategoryRepository = app(BlogPostRepository::class);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,7 @@ class PostController extends Controller
      */
     public function index()
     {
-    
+        return view('blog.admin.posts.index');
     }
 
     /**

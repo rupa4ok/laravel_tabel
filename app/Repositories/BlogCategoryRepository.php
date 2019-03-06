@@ -20,7 +20,7 @@ class BlogCategoryRepository extends CoreRepository
      *
      * @return string
      */
-    protected function getModelClass()
+    protected function getModelClass(): string
     {
         return Model::class;
     }

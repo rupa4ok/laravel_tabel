@@ -78,7 +78,7 @@ class CategoryController extends BaseController
      * @param BlogCategoryRepository $categoryRepository
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, BlogCategoryRepository $categoryRepository)
+    public function edit($id)
     {
         
         $item = $this->blogCategoryRepository->getEdit($id);
