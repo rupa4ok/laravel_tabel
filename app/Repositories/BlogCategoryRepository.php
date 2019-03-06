@@ -37,13 +37,29 @@ class BlogCategoryRepository extends CoreRepository
     }
     
     /**
-     * Получить список категорий дял вывода в выпадающем списке админки
+     * Получить список категорий для вывода в выпадающем списке админки
      *
      * @return Collection
      */
     public function getForComboBox()
     {
-        return $this->startConditions()->all();
+        $fields = implode(', ', [
+            'id',
+            'CONCAT (id, ". ", title) AS id_title'
+        ]);
+        
+        $result[] = $this->startConditions()->all();
+        $result[] = $this->startConditions()
+            ->select('blog.categories.*',
+                \DB::raw('CONCAT (id, ". ", title) AS id_title'))
+            ->toBase()
+            ->get();
+        
+        $result[] = $this
+            ->startConditions()
+            ->selectRaw($fields)
+            ->toBase()
+            ->get();
     }
     
     /**
